@@ -7,9 +7,9 @@ class Tab_viewer(QtWidgets.QTabWidget):
 
     def __init__(self):
         super().__init__()
-        uic.loadUi("src/UI/Tab_viewer.ui", self)
-        Equalizer = eq()
+        uic.loadUi("UI/Tab_viewer.ui", self)
+        self.Equalizer = eq()
 
-        self.Equalizer_layout.addWidget(Equalizer)
+        self.Equalizer_layout.addWidget(self.Equalizer)
         # self.Sampler_layout.addWidget(self.sampler)
         # self.setCurrentWidget(self.sampler_tab)
