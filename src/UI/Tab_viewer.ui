@@ -1,47 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>TabWidget</class>
+ <widget class="QTabWidget" name="TabWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>821</width>
-    <height>531</height>
+    <width>984</width>
+    <height>628</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>TabWidget</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_2">
-   <item>
-    <widget class="QTabWidget" name="Virtual_instrument_tab">
-     <property name="currentIndex">
-      <number>0</number>
-     </property>
-     <widget class="QWidget" name="Equalizer_tab">
-      <attribute name="title">
-       <string>Tab 1</string>
-      </attribute>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
-       <item>
-        <layout class="QHBoxLayout" name="Equalizer_layout"/>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="tab_2">
-      <attribute name="title">
-       <string>Tab 2</string>
-      </attribute>
-      <layout class="QHBoxLayout" name="horizontalLayout_5">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_4"/>
-       </item>
-      </layout>
-     </widget>
-    </widget>
-   </item>
-  </layout>
+  <property name="currentIndex">
+   <number>0</number>
+  </property>
+  <widget class="QWidget" name="Equalizer_tab">
+   <attribute name="title">
+    <string>Equalizer</string>
+   </attribute>
+   <layout class="QVBoxLayout" name="verticalLayout_10">
+    <item>
+     <layout class="QVBoxLayout" name="Equalizer_layout"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="Virtual_instruments_tab">
+   <attribute name="title">
+    <string>Bongos</string>
+   </attribute>
+   <layout class="QVBoxLayout" name="verticalLayout_8">
+    <item>
+     <layout class="QVBoxLayout" name="Virtual_instruments_layout"/>
+    </item>
+   </layout>
+  </widget>
  </widget>
  <resources/>
  <connections/>
