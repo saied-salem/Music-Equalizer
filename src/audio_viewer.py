@@ -17,36 +17,58 @@ class Viewer(PlotWidget):
         self.fs = 0
         self.i = 0
         self.graph = self.plot([], [], pen=self.pen)
+        self.hideAxis('bottom')
+        # self.hideAxis('left')
 
     def load_data(self, time, data, fs):
 
         # print(data)
+        self.i = 0
         self.fs = fs
-        print(self.fs)
-        self.data = np.int32(data)
+        # print(self.fs)
+        # self.data = np.int32(data)
+        self.data =data
         self.time = time
         # self.data_chuncks =
-        self.time_chuncks = np.array_split(self.time, time[-1]*10)
-        self.data_chuncks = np.array_split(self.data, time[-1]*10)
+        # self.time_chuncks = np.array_split(self.time, time[-1]*10)
+        # self.data_chuncks = np.array_split(self.data, time[-1]*10)
         # print(self.time_chunck)
-        self.setYRange(min(np.int32(self.data)), max(np.int32(self.data)))
+        self.setYRange(min((self.data))*2, max((self.data))*2)
+        self.i=0
 
         # self.plot(data)
 
     def start(self):
-        # print("vvvvvvv")
-        self.i = 0
+        # print("start data",self.fs)
+        # sd.stop()
+        sd.play(self.data[(self.i)*(self.fs//10):], self.fs )
+
+        self.start_viewer()
+        # sd.play(self.data.tolist(), self.fs, blocking=False)
+
+
+        # print(self.fs)
+        data = self.data
+        # print(self.fs)
+        # print(data)
+
+    def start_viewer(self):
+
 
         self.timer = qtc.QTimer()
+
         self.timer.timeout.connect(self.updata_graph)
-        # print(self.fs)
-        # sd.play(self.data, self.fs, blocking=False)
+
+
+        # sd.play(data, self.fs, blocking=True)
         self.timer.start(90)
+
+
 
     def updata_graph(self):
         # print(self.time_chuncks)
 
-        # print(time_chuncks)
+        # print("inside updaaatttaaa")
         if self.i==int(self.time[-1]*10):
             self.timer.stop()
         else:
@@ -55,3 +77,12 @@ class Viewer(PlotWidget):
 
             self.i += 1
         # print(self.i)
+
+    def stop_viewer(self):
+        self.timer.stop()
+        sd.stop()
+
+    def update_data_eq(self,data):
+        self.data = data
+        # print("counter",self.i)
+        sd.play(data[(self.i)*(self.fs//10):], self.fs)
