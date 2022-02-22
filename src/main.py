@@ -27,9 +27,10 @@ class MainWindow(qtw.QMainWindow):
 
     def Load_csv_file(self):
         self.sampling_rate ,self.data = audio_worker.Load_csv_file(self)
-
+        print(self.sampling_rate)
         # sd.play(self.data[:,0], self.sampling_rate)
-        self.tab_viewer.Equalizer.loading_data(self.data,self.sampling_rate )
+        data =self.data / 2.0 ** 15
+        self.tab_viewer.Equalizer.loading_data(data,self.sampling_rate )
         # print(self.data[:,0])
 
 
