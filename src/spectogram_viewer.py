@@ -17,10 +17,17 @@ class Spectogram_viewer(FigureCanvas):
         # self.axes.tick_params(left=False, bottom=False, labelleft=False, labelbottom=False)
         super().__init__(self.fig)
         self.fig.tight_layout()
+        self.axes.axis('off')
+        self.cmap = plt.get_cmap('inferno')
 
     def draw_spectogram(self,data):
-        self.axes.specgram(data)
+        self.axes.specgram(data, cmap=self.cmap)
         self.draw()
+
+    def update_data_eq(self, data):
+        self.axes.specgram(data , cmap=self.cmap)
+        self.draw()
+
 
     def clear_canvans(self):
         self.axes.clear()
