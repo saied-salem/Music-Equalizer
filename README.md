@@ -12,4 +12,4 @@
 - Reduce/null/increase the contribution of three instruments in the song or music file(piano, piccolo, snare).
 
 ## Equalizer & Virtual Instruments Demo
-![volume](./doc/Equalizer.gif)
+![volume](./doc/equalizer-video.gif)
